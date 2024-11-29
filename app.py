@@ -14,6 +14,14 @@ modelo = load_model()
 
 st.title("Tech Challenge Fase 4 - Pós-Tech FIAP")
 
+membros = ["Pedro Henrique Webster Carneiro", "Renata Oliveira de Jesus", "Alessandra Renata Brunelli", "Guilherme Rodrigues Deizeppe", "Flavia Vieira da Silva"]
+
+# Construção do texto formatado
+texto = "**Pós Tech - 4DTAT (G38):**\n" + "\n".join(f"- {membro}" for membro in sorted(membros))
+
+# Exibição no Streamlit
+st.markdown(texto)
+
 
 ## Visualizacao no streamlit
 aba1, aba2 = st.tabs(['Modelo Preditivo', 'Insights & Dashboard'])
