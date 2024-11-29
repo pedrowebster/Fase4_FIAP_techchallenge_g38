@@ -54,9 +54,9 @@ with aba1:
         fig.update_layout({
             'plot_bgcolor': 'rgba(255, 255, 255, 1)',  # Define o fundo da área do gráfico como branco
             'paper_bgcolor': 'rgba(255, 255, 255, 1)', # Define o fundo externo ao gráfico como branco
-            'title': {'text': "Previsão de Ozônio", 'font': {'color': 'black'}},
+            'title': {'text': "Previsão do Preço do Petróleo", 'font': {'color': 'black'}},
             'xaxis': {'title': 'Data', 'title_font': {'color': 'black'}, 'tickfont': {'color': 'black'}},
-            'yaxis': {'title': 'Nível de Ozônio (O3 μg/m3)', 'title_font': {'color': 'black'}, 'tickfont': {'color': 'black'}}
+            'yaxis': {'title': 'US$', 'title_font': {'color': 'black'}, 'tickfont': {'color': 'black'}}
         })
         st.plotly_chart(fig)
 
