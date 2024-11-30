@@ -24,9 +24,9 @@ st.markdown(texto)
 
 
 ## Visualizacao no streamlit
-aba1, aba2 = st.tabs(['Modelo Preditivo', 'Insights & Dashboard'])
+aba1, aba2 = st.tabs(['Dashboard & Insights', 'Modelo Preditivo'])
 
-with aba1:
+with aba2:
     st.subheader('Previsão do Preço de Petróleo (US$) Utilizando a Biblioteca Prophet')
 
     st.caption('''Este projeto utiliza a biblioteca Prophet para prever o preço diário em US$ do barril de Petróleo. O modelo
@@ -51,6 +51,7 @@ with aba1:
 
     if st.session_state.previsao_feita:
         fig = plot_plotly(modelo, st.session_state['dados_previsao'])
+
         fig.update_layout({
             'plot_bgcolor': 'rgba(255, 255, 255, 1)',  # Define o fundo da área do gráfico como branco
             'paper_bgcolor': 'rgba(255, 255, 255, 1)', # Define o fundo externo ao gráfico como branco
@@ -72,7 +73,13 @@ with aba1:
         csv = tabela_previsao.to_csv(index=False)
         st.download_button(label='Baixar tabela como .csv', data = csv, file_name = 'previsao_petroleo_{}dias.csv'.format(dias), mime = 'text/csv')
 
-with aba2:
+with aba1:
+    
+    st.subheader('Dashboard Looker com Insights Sobre Variação do Preço do Petróleo')
+
+    st.caption('''O dashboard abaixo foi feito utilizando a ferramenta de BI Looker, da Google. Todos os insights a respeito da variação do preço do Petróleo relacionando com os 
+               acontececimentos relavantes estão expressos dentro dele (na parte inferior).''')
+    
     # The Google Looker Studio embed URL
     looker_studio_url = "https://lookerstudio.google.com/embed/reporting/f28ef11e-27fe-4ceb-b1d1-5fc5060a4db8/page/0yVWE"
     components.iframe(looker_studio_url, width=1000, height=1280)
